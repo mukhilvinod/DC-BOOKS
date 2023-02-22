@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+          .card:hover{
+          box-shadow: 5px 6px 6px 2px #464b40;
+          transform: scale(1.1);
+
+
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="http://127.0.0.1:8000/sample/index/" style="color: rgb(50, 205, 94);">DC books</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="http://127.0.0.1:8000/sample/indexD/">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Register
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/sample/shopregister/">Shop Register</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/sample/userregister/">User Register</a></li>
+                      <!-- <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li> -->
+                    </ul>
+                  </li>
+
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Login
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/sample/shoplogin/">Shop Login</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/sample/login/">User Login</a></li>
+                        <li><a class="dropdown-item" href="http://127.0.0.1:8000/admin">Admin Login</a></li>
+
+                      <!-- <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li> -->
+                    </ul>
+                  </li>
+
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                  </li>
+
+
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+
+    </div>
+
+    <div class="container-fluid" style="background-color:#212529;">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static '/images/uni.jpg' %}" class="d-block w-100" alt="..." style="">
+              </div>
+<!--              <div class="carousel-item">-->
+<!--                <img src="" class="d-block w-100" alt="...">-->
+<!--              </div>-->
+<!--              <div class="carousel-item">-->
+<!--                <img src="" class="d-block w-100" alt="...">-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--            </div>-->
+<!--            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">-->
+<!--              <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--              <span class="visually-hidden">Previous</span>-->
+<!--            </button>-->
+<!--            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">-->
+<!--              <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--              <span class="visually-hidden">Next</span>-->
+<!--            </button>-->
+<!--          </div>-->
+
+    </div>
+
+    <div class="container-fluid" style="background-image: linear-gradient(180deg, #58aa21 0%, #03b2bb 50%, #03b2bb 100%);">
+
+        <div class="row" style=" padding-top: 18px; padding-bottom: 130px; ">
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+                <div class="card" style="width: 18rem; background-color: #03b2bb;">
+                    <img src="https://www.dcbooks.com/wp-content/uploads/2019/02/kavithakal-book-1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">മലയാളം
+                    </h5>
+
+                    </div>
+                  </div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center ">
+                <div class="card" style="width: 18rem; background-color: #020228; color: aliceblue;">
+                    <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/1988/9780198813965.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">English</h5>
+
+                    </div>
+                  </div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+                <div class="card" style="width: 18rem; background-color: #06070b; color: aliceblue;">
+                    <img src="https://www.pustak.org/images/products/8637_Meluha-ke-Mrityunjay_l.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">हिंदी</h5>
+
+                    </div>
+                  </div>
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <!-- <div class="container-fluid">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://www.financialexpress.com/wp-content/uploads/2022/09/samsung-watch-5.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://i.gadgets360cdn.com/large/samsung_galaxy_watch_4_buds_2_2_1630053361622.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://www.notebookcheck.com/fileadmin/Notebooks/News/_nc3/The_Frame.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+    </div> -->
+
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->

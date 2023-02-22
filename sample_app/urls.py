@@ -1,0 +1,38 @@
+from django.urls import path
+from .views import *
+
+urlpatterns=[
+    path('first/',first),
+    path('index/',index),
+    path('indexD/',dummyindex),
+    path('shopregister/',shopregister),
+    path('upload/',productupload),
+    path('shoplogin/',shoplogin),
+    path('display/',home),
+    path('profile/',profilee),
+    path('productdisplay/',productdisplay),
+    path('delete/<int:id>',productdelete),
+    path('edit/<int:id>',productedit),
+    path('userprofile/',uprofile),
+    path('userregister/',regis),
+    path('success/',success),
+    path('verify/<auth_token>',verify),
+    path('login/',login),
+    path('addcart/<int:id>',addtocart),
+    path('wishlist/<int:id>',addwish),
+    path('wishdisplay/',wishlistdisplay),
+    path('cartdisplay/',cartdisplay),
+    path('waddtocart/<int:id>',Waddtocart),
+    path('cdelete/<int:id>',cdelete),
+    path('wdelete/<int:id>',wdelete),
+    path('cartbuy/<int:id>',cartbuy),
+    path('card/',C_card),
+    path('all/',viewfull),
+    path('horror/',horror),
+    path('fiction/',fiction),
+    path('addto2/<int:id>',addto2),
+    path('wishfiction/<int:id>',wishfiction),
+    path('carthorror/<int:id>',carthorror),
+    path('shopnotification/',shopNoti),
+
+]
