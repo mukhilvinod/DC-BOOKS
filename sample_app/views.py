@@ -86,7 +86,9 @@ def shoplogin(request):
                     request.session['id']=i.id
                     return redirect(profilee)
             else:
-                return HttpResponse("login failed")
+                messages.success(request, 'Wrong password or username')
+                return redirect(shoplogin)
+
     return render(request,"shoplogin.html")
 
 
@@ -100,7 +102,6 @@ def productupload(request):
         a=productForms(request.POST,request.FILES)
         id = request.session['id']
         if a.is_valid():
-
             pn=a.cleaned_data['productname']
             p=a.cleaned_data['price']
             d=a.cleaned_data['discription']
@@ -178,6 +179,7 @@ def regis(request):
         firstname=request.POST.get('first_name')
         lastname=request.POST.get('last_name')
         password=request.POST.get('password')
+
         #checking wether the username exists
         if User.objects.filter(username=username).first():
             #filter is used to search filter the msg and allow you to return only the row the matches the search
@@ -188,6 +190,10 @@ def regis(request):
         if User.objects.filter(email=email).first():
             messages.success(request,'email already exist')
             return redirect(regis)
+        # if User.objects.filter(email=None):
+        #     messages.success(request,'email already exist11111')
+        #     return redirect(regis)
+
         user_obj=User(username=username,email=email,first_name=firstname,last_name=lastname)
         user_obj.set_password(password)
         user_obj.save()
@@ -208,7 +214,7 @@ def regis(request):
 
 def send_email_register(email,auth_token):
     subject="your account has been verified"
-    message=f'click the link to verify your account http://127.0.0.1:8000/sample/verify/{auth_token} '
+    message=f'click the link to verify your account http://127.0.0.1:8000/verify/{auth_token} '
     #f is a string literal which contains expressions inside curley brakets the expression are replaced by values
     email_from=EMAIL_HOST_USER
     recipient=[email]
@@ -252,28 +258,16 @@ def login(request):
         username=request.POST.get('username')
         password=request.POST.get('password')
         request.session['nameid']=username
-
-
-
-
         user_obj=User.objects.filter(username=username).first()
-        request.session['userid']=user_obj.id
-
-
-
-
-
         if user_obj is None:
-            messages.success(request,'user not found')
+            messages.success(request,'user not registered yet')
             return redirect(login)
+        request.session['userid'] = user_obj.id
         profile_obj=profile.objects.filter(user=user_obj).first()
-
         if not profile_obj.is_verified:
             messages.success(request,'profile not verified check your mail')
             return redirect(login)
         user=authenticate(username=username,password=password)
-
-
         if user is None:
             messages.success(request,'wrong password or username')
             return redirect(login)
@@ -284,8 +278,9 @@ def login(request):
 def addtocart(request,id):
     c=request.session['userid']
     a=productmodels.objects.get(id=id)
-    if cart.objects.filter(productname=a.productname):
-        return HttpResponse("already in cart")
+    # if cart.objects.filter(productname=a.productname):
+    #     return HttpResponse("already in cart")
+    # else:
     b=cart(productname=a.productname,price=a.price,discription=a.discription,image=a.image,userid=c)
     b.save()
     return redirect(home)
@@ -294,8 +289,10 @@ def addtocart(request,id):
 def Waddtocart(request,id):
     c=request.session['userid']
     a=wishlist.objects.get(id=id)
-    if cart.objects.filter(productname=a.productname):
-        return HttpResponse("already in wishlist")
+    # if cart.objects.filter(productname=a.productname):
+    #     return HttpResponse("already in wishlist")
+    # else:
+
     b=cart(productname=a.productname,price=a.price,discription=a.discription,image=a.image,userid=c)
     b.save()
     return redirect(cartdisplay)
@@ -303,7 +300,6 @@ def Waddtocart(request,id):
 def cartdisplay(request):
     b=request.session['userid']
     a=cart.objects.all()
-
     product = []
     price = []
     discription = []
@@ -367,8 +363,8 @@ def viewfull(request):
 def addwish(request,id):
     c=request.session['userid']
     a=productmodels.objects.get(id=id)
-    if wishlist.objects.filter(productname=a.productname):
-        return HttpResponse("already in wishlist")
+    # if wishlist.objects.filter(productname=a.productname):
+    #     return HttpResponse("already in wishlist")
     b=wishlist(productname=a.productname,price=a.price,discription=a.discription,image=a.image,userid=c)
     b.save()
     return redirect(home)
@@ -440,14 +436,10 @@ def C_card(request):
         # checking wether the username exists
         b=customercardM(cardname=cardname,cardnumber=cardnumber,carddate=carddate,scode=scode)
         b.save()
-
         date=datetime.today().date()+timedelta(days=10)
         a=User.objects.get(id=ids)
         mail=a.email
-
         send_email_reg(mail,date)
-
-
         return render(request,'order.html',{'date':date})
     return render(request,'Ecard.html')
 
@@ -498,6 +490,10 @@ def dummyindex(request):
 def carthorror(request,id):
     c = request.session['userid']
     a = productmodels.objects.get(id=id)
+    # if cart.objects.filter(productname=a.productname):
+    #     return HttpResponse("already in cart")
+    # else:
+
     b = cart(productname=a.productname, price=a.price, discription=a.discription, image=a.image, userid=c)
     b.save()
     return redirect(horror)
@@ -505,7 +501,7 @@ def carthorror(request,id):
 
 
 def horror(request):
-    b=request.session['id']
+    b=request.session['userid']
     a=productmodels.objects.all()
 
     product=[]
@@ -541,6 +537,9 @@ def horror(request):
 def addto2(request,id):
     c = request.session['userid']
     a = productmodels.objects.get(id=id)
+    # if cart.objects.filter(productname=a.productname):
+    #     return HttpResponse("already in cart")
+    # else:
     b = cart(productname=a.productname, price=a.price, discription=a.discription, image=a.image, userid=c)
     b.save()
     return redirect(fiction)
@@ -549,6 +548,10 @@ def addto2(request,id):
 def wishfiction(request,id):
     c = request.session['userid']
     a = productmodels.objects.get(id=id)
+    # if cart.objects.filter(productname=a.productname):
+    #     return HttpResponse("already in cart")
+    # else:
+
     b = wishlist(productname=a.productname, price=a.price, discription=a.discription, image=a.image, userid=c)
     b.save()
     return redirect(fiction)
@@ -556,7 +559,7 @@ def wishfiction(request,id):
 
 
 def fiction(request):
-    b = request.session['id']
+    b = request.session['userid']
     a = productmodels.objects.all()
 
     product = []
@@ -609,10 +612,10 @@ def userNoti(request):
     for i in a:
         no=i.content
         note.append(no)
-
         t=i.date
         shoptime.append(t)
-    mylist=zip(note)
+    mylist=zip(note,shoptime)
+
     return render(request,'usernoti.html',{'n':mylist})
 
 

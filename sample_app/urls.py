@@ -3,7 +3,7 @@ from .views import *
 
 urlpatterns=[
     path('first/',first),
-    path('index/',index),
+    path('',index),
     path('indexD/',dummyindex),
     path('shopregister/',shopregister),
     path('upload/',productupload),
@@ -34,5 +34,6 @@ urlpatterns=[
     path('wishfiction/<int:id>',wishfiction),
     path('carthorror/<int:id>',carthorror),
     path('shopnotification/',shopNoti),
+    path('usernoti/',userNoti),
 
 ]

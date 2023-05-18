@@ -27,7 +27,7 @@
     <div class="container-fluid bg-dark">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://127.0.0.1:8000/sample/index/" style="color: rgb(50, 205, 94);">DC
+                <a class="navbar-brand" href="http://127.0.0.1:8000/index/" style="color: rgb(50, 205, 94);">DC
                     books</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -50,41 +50,49 @@
             Books
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="http://127.0.0.1:8000/sample/fiction/">Fiction</a></li>
-            <li><a class="dropdown-item" href="http://127.0.0.1:8000/sample/horror/">Horror</a></li>
+            <li><a class="dropdown-item" href="http://127.0.0.1:8000/fiction/">Fiction</a></li>
+            <li><a class="dropdown-item" href="http://127.0.0.1:8000/horror/">Horror</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
                     </ul>
-                    <form class="d-flex ms-auto">
-                        <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+<!--                    <form class="d-flex ms-auto">-->
+<!--                        <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">-->
+<!--                        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--                    </form>-->
 
                     <ul class="navbar-nav ms-1 mb-3 mb-lg-0">
                         <li>
-                            <a class="nav-link" href="http://127.0.0.1:8000/sample/cartdisplay/" tabindex="-1"
+                            <a class="nav-link" href="http://127.0.0.1:8000/cartdisplay/" tabindex="-1"
                                aria-disabled="true">
 
                                 <i class="fa-sharp fa-solid fa-cart-shopping  fa-1x"></i></a>
                         </li>
                         <li>
-                            <a class="nav-link" href="http://127.0.0.1:8000/sample/wishdisplay/" tabindex="-1"
+                            <a class="nav-link" href="http://127.0.0.1:8000/wishdisplay/" tabindex="-1"
                                aria-disabled="true">
 
                                 <i class="fa-solid fa-heart"></i></a>
                         </li>
 
                         <li>
-                            <a class="nav-link" href="http://127.0.0.1:8000/sample/userprofile/" tabindex="-1"
+                            <a class="nav-link" href="http://127.0.0.1:8000/userprofile/" tabindex="-1"
                                aria-disabled="true">
 
                                 <i class="fa-solid fa-user"></i>
                             </a>
                         </li>
+                        <li>
+
+                              <a class="nav-link" href="http://127.0.0.1:8000/usernoti/" tabindex="-1" aria-disabled="true">
+
+                            <i class="fa-solid fa-bell"></i></a>
+                            </a>
+
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="sample.html">{{ b }}</a>
+                            <a class="nav-link" href="http://127.0.0.1:8000/userprofile/">{{ b }}</a>
                         </li>
 
                     </ul>
@@ -132,9 +140,9 @@
 
                                 <h6 class="card-title" style="color:white">$ {{j}}</h6>
 
-                                <a href="http://127.0.0.1:8000/sample/addcart/{{n}}" class="btn btn-primary">Add to
+                                <a href="http://127.0.0.1:8000/addcart/{{n}}" class="btn btn-primary">Add to
                                     Cart</a>
-                                <a href="http://127.0.0.1:8000/sample/wishlist/{{n}}" class="btn btn-primary">Add to
+                                <a href="http://127.0.0.1:8000/wishlist/{{n}}" class="btn btn-primary">Add to
                                     Wishlist</a>
 
 
