@@ -33,6 +33,7 @@ urlpatterns=[
     path('addto2/<int:id>',addto2),
     path('wishfiction/<int:id>',wishfiction),
     path('carthorror/<int:id>',carthorror),
+    path('wishhorror/<int:id>',wishhorror),
     path('shopnotification/',shopNoti),
     path('usernoti/',userNoti),
 

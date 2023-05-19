@@ -27,7 +27,7 @@
     <div class="container-fluid bg-dark">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://127.0.0.1:8000/index/" style="color: rgb(50, 205, 94);">DC
+                <a class="navbar-brand" href="http://127.0.0.1:8000/" style="color: rgb(50, 205, 94);">DC
                     books</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -102,7 +102,17 @@
 
     </div>
 
-    <div>
+             {% if messages %}
+                {% for i in messages %}
+                <div class="alert alert-info">
+                    {{ i }}
+
+                </div>
+                {% endfor %}
+            {% endif %}
+
+
+
 
 
         <div class="container bg-dark" style="padding-top: 20px ; padding-bottom: 2%;">
@@ -125,6 +135,9 @@
             </div>
 
         </div>
+
+
+
 
         <div>
             <div class="container" style="margin-top: 10px;  padding-bottom :25px ">

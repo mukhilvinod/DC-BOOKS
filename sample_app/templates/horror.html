@@ -85,6 +85,14 @@
             </div>
 
     </div>
+      {% if messages %}
+                {% for i in messages %}
+                <div class="alert alert-info">
+                    {{ i }}
+
+                </div>
+                {% endfor %}
+            {% endif %}
 
     <div>
         <div class="container " style="padding-bottom: 30px;">
@@ -115,7 +123,7 @@
 
                                 <a href="http://127.0.0.1:8000/carthorror/{{n}}" class="btn btn-primary">Add to
                                     Cart</a>
-                                <a href="http://127.0.0.1:8000/wishlist/{{n}}" class="btn btn-primary">Add to
+                                <a href="http://127.0.0.1:8000/wishhorror/{{n}}" class="btn btn-primary">Add to
                                     Wishlist</a>
 
 

@@ -85,6 +85,14 @@
             </div>
 
     </div>
+      {% if messages %}
+                {% for i in messages %}
+                <div class="alert alert-info">
+                    {{ i }}
+
+                </div>
+                {% endfor %}
+            {% endif %}
 
     <div>
         <div class="container " style="padding-bottom: 30px;">
